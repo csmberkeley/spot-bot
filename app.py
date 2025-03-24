@@ -118,6 +118,63 @@ def broadcast_helper(team_id, message):
 def uninstall_dead_workplace(team_id):
     pass
     
+@app.cli.command("temp_test")
+def temp_test():
+    for team_id in installation_data.install_collection.distinct("team_id"):
+        print(team_id)
+        bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
+        try:
+            auth = bolt_app.client.auth_test(token=bot.bot_token)
+        except Exception as e:
+            print(e.response)
+            print(e)
+            print(dir(e))
+            print(type(e))
+
+
+@app.cli.command("rectify_ids")
+def rectify_ids():
+    # Ensures that a team_id and channel_id are placed on all documents in the main collection.
+    # After doing this, go through with the query { $or: [{"team_id": null}, {"channel_id": null}]}
+    # and manually prune bad areas. 
+    for team_id in installation_data.install_collection.distinct("team_id"):
+        print(f"Rectifying team {team_id}")
+        bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
+        try: 
+            response = bolt_app.client.users_conversations(token=bot.bot_token, types="public_channel, private_channel", exclude_archived=False)
+        except Exception as e:
+            response = e.response
+            print(response)
+            continue
+        for channel in response["channels"]:
+            channel_id = channel["id"]
+            print(f"Rectifying channel {channel_id}")
+            loc_id = hashlib.sha256(bytes(channel_id + team_id, encoding="utf-8")).hexdigest()
+            spot_data.configure_for_loc(loc_id)
+            spot_data.set_channel_id(channel_id)
+            spot_data.set_team_id(team_id)
+            spot_data.push_write()
+        else: 
+            print(f"No channels in team.")
+
+@app.cli.command("determine_inactive_teams")
+def determine_inactive_teams():
+    # Finds a list of inactive teams in Mongo
+    # You can manually remove them later
+    bad_ids = []
+    for team_id in installation_data.install_collection.distinct("team_id"):
+        print(f"Reviewing {team_id}")
+        bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
+        try: 
+            response = bolt_app.client.users_conversations(token=bot.bot_token, types="public_channel, private_channel", exclude_archived=False)
+        except Exception as e:
+            response = e.response
+            if response['error'] == 'account_inactive':
+                bad_ids.append(team_id)
+            print(response)
+    print()
+    print(f"Inactive teams: {bad_ids}")
+
 
 @bolt_app.event("member_joined_channel")
 def joined_listener(event, body, say, client):

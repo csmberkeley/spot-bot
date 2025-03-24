@@ -20,6 +20,8 @@ RECENT = "recent"
 MESSAGES = "messages"
 IMAGES = "images"
 MANAGER = "manager"
+TEAM_ID = "team_id"
+CHANNEL_ID = "channel_id"
 
 REFERENDUM_COLLECTION_NAME = "referenda"
 
@@ -145,6 +147,18 @@ class SpotDatabase():
         if not result or MANAGER not in result: 
             return 
         return result[MANAGER]
+    
+    def get_team_id(self):
+        result = self.get({TEAM_ID: True})
+        if not result or TEAM_ID not in result: 
+            return 
+        return result[TEAM_ID]
+    
+    def get_channel_id(self):
+        result = self.get({CHANNEL_ID: True})
+        if not result or CHANNEL_ID not in result: 
+            return 
+        return result[CHANNEL_ID]
 
     def drop_loc(self, manager):
         return self.collection.replace_one(
@@ -221,6 +235,12 @@ class SpotDatabase():
 
     def set_manager(self, user): 
         self.set(f"{MANAGER}", user)
+
+    def set_team_id(self, team_id): 
+        self.set(f"{TEAM_ID}", team_id)
+
+    def set_channel_id(self, channel_id): 
+        self.set(f"{CHANNEL_ID}", channel_id)
 
     def pop(self, path, from_front: bool):
         self.update_value(path, "$pop", -1 if from_front else 1)
