@@ -118,19 +118,6 @@ def broadcast_helper(team_id, message):
 def uninstall_dead_workplace(team_id):
     pass
     
-@app.cli.command("temp_test")
-def temp_test():
-    for team_id in installation_data.install_collection.distinct("team_id"):
-        print(team_id)
-        bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
-        try:
-            auth = bolt_app.client.auth_test(token=bot.bot_token)
-        except Exception as e:
-            print(e.response)
-            print(e)
-            print(dir(e))
-            print(type(e))
-
 
 @app.cli.command("rectify_ids")
 def rectify_ids():
