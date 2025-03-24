@@ -17,7 +17,7 @@ Spot Bot is the relentless accountant of the surreptitious photos you take of ea
 - Spotbot will treat each channel of the workspace separately so different teams can maintain their own spot boards. 
 
 ## Install
-[Click here to install](https://spot-bot.onrender.com/spotbot/install/). (I know this looks really janky, but this is actually more secure than the native slack flow which does not protect against CSRF attacks.)
+[Click here to install](https://spot-bot.csmentors.org/spotbot/install/). (I know this looks really janky, but this is actually more secure than the native slack flow which does not protect against CSRF attacks.)
 
 By installing Spot Bot, you acknowledge that you have read and agree to our [terms of use and privacy policy](https://gabeclasson.com/projects/spot-bot/terms-privacy/). 
 
