@@ -1,4 +1,6 @@
 import re, os
+import click
+
 from utils import *
 
 from flask import Flask, request
@@ -34,6 +36,7 @@ mongo = PyMongo(app)
 db_client = mongo.cx
 spot_data = SpotDatabase(db_client)
 referendum_data = ReferendumDatabase(db_client, REFERENDUM_EXPIRATION_SECONDS)
+installation_data = DatabaseInstallationStore(db_client)
 
 # https://slack.dev/bolt-python/concepts#authenticating-oauth
 oauth_settings = OAuthSettings(
@@ -52,7 +55,7 @@ oauth_settings = OAuthSettings(
         "channels:read",
         "groups:read"
     ],
-    installation_store=DatabaseInstallationStore(db_client),
+    installation_store=installation_data,
     state_store=DatabaseOAuthStateStore(db_client, expiration_seconds=OAUTH_EXPIRATION_SECONDS),
     install_path=f"{BASE}/install/",
     redirect_uri_path=f"{BASE}/oauth_redirect/"
@@ -75,7 +78,90 @@ def handle_oauth():
 
 @app.route(f"{BASE}/events/", methods=["POST"])
 def handle_events():
+    print(f"Original request URL {request.base_url}")
     return handler.handle(request)
+
+
+# WARNING: EVEN IN DEVELOPMENT, THIS MAY BE ABLE TO SEND A MESSAGE TO ALL INSTALLATIONS
+@app.cli.command("systemwide_broadcast")
+@click.argument("message")
+def systemwide_broadcast_message(message):
+    print(f"Broadcasting a message to all teams.")
+    for team_id in installation_data.install_collection.distinct("team_id"):
+        broadcast_helper(team_id, message)
+
+@app.cli.command("broadcast")
+@click.argument("team_id")
+@click.argument("message")
+def broadcast_message(team_id, message):
+    return broadcast_helper(team_id, message)
+
+def broadcast_helper(team_id, message): 
+    print(f"Broadcasting a message to Team ID {team_id}")
+    bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
+    response = bolt_app.client.users_conversations(token=bot.bot_token, types="public_channel, private_channel", exclude_archived=True)
+    statuses = []
+    for channel in response["channels"]:
+        channel_id = channel["id"]
+        if channel["is_archived"]: 
+            continue
+        resp = bolt_app.client.chat_postMessage(token=bot.bot_token, channel=channel_id, text=message)
+        if resp['ok']:
+            print(f"Successfully sent message: {resp}")
+        else: 
+            print(f"Failed to send message: {resp}")
+        statuses.append(resp)
+    else: 
+        f"No channels available for Team ID {team_id}"
+    return statuses
+
+def uninstall_dead_workplace(team_id):
+    pass
+    
+
+@app.cli.command("rectify_ids")
+def rectify_ids():
+    # Ensures that a team_id and channel_id are placed on all documents in the main collection.
+    # After doing this, go through with the query { $or: [{"team_id": null}, {"channel_id": null}]}
+    # and manually prune bad areas. 
+    for team_id in installation_data.install_collection.distinct("team_id"):
+        print(f"Rectifying team {team_id}")
+        bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
+        try: 
+            response = bolt_app.client.users_conversations(token=bot.bot_token, types="public_channel, private_channel", exclude_archived=False)
+        except Exception as e:
+            response = e.response
+            print(response)
+            continue
+        for channel in response["channels"]:
+            channel_id = channel["id"]
+            print(f"Rectifying channel {channel_id}")
+            loc_id = hashlib.sha256(bytes(channel_id + team_id, encoding="utf-8")).hexdigest()
+            spot_data.configure_for_loc(loc_id)
+            spot_data.set_channel_id(channel_id)
+            spot_data.set_team_id(team_id)
+            spot_data.push_write()
+        else: 
+            print(f"No channels in team.")
+
+@app.cli.command("determine_inactive_teams")
+def determine_inactive_teams():
+    # Finds a list of inactive teams in Mongo
+    # You can manually remove them later
+    bad_ids = []
+    for team_id in installation_data.install_collection.distinct("team_id"):
+        print(f"Reviewing {team_id}")
+        bot = bolt_app.installation_store.find_installation(team_id=team_id, enterprise_id=None, user_id=None, is_enterprise_install=None)
+        try: 
+            response = bolt_app.client.users_conversations(token=bot.bot_token, types="public_channel, private_channel", exclude_archived=False)
+        except Exception as e:
+            response = e.response
+            if response['error'] == 'account_inactive':
+                bad_ids.append(team_id)
+            print(response)
+    print()
+    print(f"Inactive teams: {bad_ids}")
+
 
 @bolt_app.event("member_joined_channel")
 def joined_listener(event, body, say, client):
@@ -89,6 +175,8 @@ def joined_listener(event, body, say, client):
 
     spot_data.configure_for_message(event, body)
     spot_data.set_manager(event["inviter"])
+    spot_data.set_channel_id(event["channel"])
+    spot_data.set_team_id(body["team_id"])
     spot_data.push_write()
 
 @bolt_app.message(SPOT_PATTERN)
