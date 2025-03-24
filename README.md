@@ -39,3 +39,19 @@ You will also need to configure the MongoDB database to accept traffic from your
 Once all that is configured, you can start the local server with 
 
     bash run.sh
+
+To broadcast a message to a particular workplace, use the command with the team ID and a message. 
+
+    flask broadcast T124TEAMID "Insert your message here"
+
+To broadcast a message to every workplace, use this command. Do this sparingly.
+
+    flask systemwide_broadcast "Insert your message here"
+
+To print a list of all installed workplaces that have since uninstalled the app, run
+
+    flask determine_inactive_teams
+
+Prior to March 2025, the main collection in the Mongo instance did not store the Team ID and Channel ID for each instance of Spotbot in a channel. The following command visits each workspace, identifies all the channels that Spotbot is in, and attempts to rectify this issue by adding the Team ID and Channel ID to the given instance. This command likely can help you clean out the Mongo instance; channels that are not accessible (i.e. after you run this command they still lack a channel/team ID) likely can have their data deleted.
+
+    flask rectify_ids
