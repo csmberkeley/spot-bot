@@ -105,7 +105,7 @@ def broadcast_helper(team_id, message):
         channel_id = channel["id"]
         if channel["is_archived"]: 
             continue
-        resp = {'ok': True} #bolt_app.client.chat_postMessage(token=bot.bot_token, channel=channel_id, text=message)
+        resp = bolt_app.client.chat_postMessage(token=bot.bot_token, channel=channel_id, text=message)
         if resp['ok']:
             print(f"Successfully sent message: {resp}")
         else: 
