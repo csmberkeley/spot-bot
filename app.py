@@ -188,6 +188,8 @@ def joined_listener(event, body, say, client):
 
     spot_data.configure_for_message(event, body)
     spot_data.set_manager(event["inviter"])
+    spot_data.set_channel_id(event["channel"])
+    spot_data.set_team_id(body["team_id"])
     spot_data.push_write()
 
 @bolt_app.message(SPOT_PATTERN)
