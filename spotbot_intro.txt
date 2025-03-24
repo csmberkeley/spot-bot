@@ -1,8 +1,8 @@
 I'm Spot Bot, the relentless accountant of the surreptitious photos you take of each other. 
 
 - `spot`, `spotted`: Spot people by mentioning them in a message with the keyword `spot` or `spotted` and a picture of your spot. 
-- `spotboard`: Show how many times each channel member has spotted someone else. 
-- `caughtboard`: Show how many times each channel member has been spotted.
+- `spotboard`: Show how many times each channel member has spotted someone else. `spotboard 20` will show the top 20 spotters. 
+- `caughtboard`: Show how many times each channel member has been spotted. `caughtboard 20` will show the top 20 who've been caught. 
 - `pics`: View all pics of a person by tagging them in a message with the `pics` keyword. 
 - `referendum`: Reply `referendum` to a spot to start a 24-hour vote to determine if the spot will count or not. 
 - `reset`: Reset the spot record in a channel. 
