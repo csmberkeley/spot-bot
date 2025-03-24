@@ -75,6 +75,7 @@ def handle_oauth():
 
 @app.route(f"{BASE}/events/", methods=["POST"])
 def handle_events():
+    print(f"Original request URL {request.base_url}")
     return handler.handle(request)
 
 @bolt_app.event("member_joined_channel")
