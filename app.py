@@ -221,7 +221,7 @@ def log_spot(channel, user, ts, text, files, say, client, purged_recent=False):
     if not purged_recent: 
         recent = spot_data.get_recent()
         if recent == spotter: 
-            say(f"<@{spotter}> is on fire 🥵")
+            say(f"<@{spotter}> is on fire 🥵💪")
             spot_data.set(RECENT, None)
         else: 
             spot_data.set(RECENT, spotter)

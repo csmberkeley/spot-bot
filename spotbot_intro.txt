@@ -12,4 +12,6 @@ Tips
 - Look out for :white_check_mark:. If you don't see :white_check_mark:, your spot didn't count!
 - If you didn't spot something correctly, you can edit your message within one minute of sending it to correct the error. 
 - If you delete a message, the spot will no longer count! 
-- Spotbot will treat each channel of the workspace separately so different teams can maintain their own spot boards. 
+- Spot Bot will treat each channel of the workspace separately so different teams can maintain their own spot boards. 
+
+Spot Bot was proudly union made by members of UAW 4811. :muscle: Happy spotting! :camera_with_flash:
