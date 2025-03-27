@@ -1,1 +1,1 @@
-gunicorn -w 4 app:app --preload --log-config logging.ini --access-logfile - --access-logformat  "%(h)s %({X-Request-Id}i)s %(s)s %(m)s %(p)s %(U)s %(q)s %(L)ss %(B)sB"
+gunicorn app:app --preload --log-config logging.ini --access-logfile - --access-logformat  "%(h)s %({X-Request-Id}i)s %(s)s %(m)s %(p)s %(U)s %(q)s %(L)ss %(B)sB"
