@@ -25,7 +25,7 @@ Developed and tested on Python 3.8.10 in Ubuntu. WSL was used to develop in Linu
 
 You will need to set up a virtual environment to test locally and then install the requirements in `requirements.txt`. 
 
-You will also need to set up the following confidential environment variables: `SPOTBOT_CLIENT_ID`, `SPOTBOT_CLIENT_SECRET`, `SPOTBOT_SECURE_LINK`, `SPOTBOT_SIGNING_SECRET`. `SPOTBOT_SECURE_LINK` refers to a link for the Mongo endpoint, i.e. mongodb+srv://...
+You will also need to set up the following confidential environment variables in a .env file: `SPOTBOT_CLIENT_ID`, `SPOTBOT_CLIENT_SECRET`, `SPOTBOT_SECURE_LINK`, `SPOTBOT_SIGNING_SECRET`. `SPOTBOT_SECURE_LINK` refers to a link for the Mongo endpoint, i.e. mongodb+srv://... Additionally, set up the `WEB_CONCURRENCY` variable to set the number of workers that gunicorn will use. We use `WEB_CONCURRENCY=4`.
 
 Once the virtual environment is set up, the following command will start it. 
 
