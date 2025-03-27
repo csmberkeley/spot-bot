@@ -11,7 +11,6 @@ from slack_bolt.oauth.oauth_settings import OAuthSettings
 
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from dotenv import load_dotenv
 from flask_pymongo import PyMongo
 
 SPOT_WORDS = ["spot", "spotted", "spotting", "codespot", "codespotted", "codespotting"]
@@ -27,8 +26,6 @@ USER_PATTERN = re.compile(r"<@[a-zA-Z0-9]+>")
 
 APPROVED_EMOJI = "white_check_mark"
 DENIED_EMOJI = "x"
-
-load_dotenv()
 
 app = Flask("app")
 app.config["MONGO_URI"] = os.environ.get("SPOTBOT_SECURE_LINK")
