@@ -1,0 +1,855 @@
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-SemiBold.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-SemiBold.woff') format('woff'),
+        url('/static/fonts/Gontserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Thin.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Thin.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Light.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Light.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-MediumItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-MediumItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-ThinItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-ThinItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-ExtraLight.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-ExtraLight.woff') format('woff'),
+        url('/static/fonts/Gontserrat-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Italic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Italic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-ExtraBoldItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-ExtraBoldItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Black.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Black.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Bold.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Bold.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-LightItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-LightItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Medium.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Medium.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-BlackItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-BlackItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-BoldItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-BoldItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-Regular.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-Regular.woff') format('woff'),
+        url('/static/fonts/Gontserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-ExtraLightItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-ExtraLightItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-SemiBoldItalic.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-SemiBoldItalic.woff') format('woff'),
+        url('/static/fonts/Gontserrat-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gontserrat';
+    src: url('/static/fonts/Gontserrat-ExtraBold.woff2') format('woff2'),
+        url('/static/fonts/Gontserrat-ExtraBold.woff') format('woff'),
+        url('/static/fonts/Gontserrat-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+} 
+
+:root { 
+    --primary-color: #546BA8; 
+    --secondary-color: #ffffff;
+    --tertiary-color: #333;
+    --header-font-family: 'Gontserrat', 'Montserrat', sans-serif;
+    --body-font-family: 'Roboto Slab', serif;
+    --background-color: var(--secondary-color);
+    --text-color: var(--tertiary-color);
+    --highlight-color: var(--primary-color);
+    --link-text-decoration: underline;
+    --horizontal-doc-padding: min(5%, 30px);
+}
+
+.primary {
+    --background-color: var(--primary-color);
+    --text-color: var(--secondary-color);
+    --highlight-color: var(--tertiary-color);
+}
+
+.secondary {
+    --background-color: var(--secondary-color);
+    --text-color: var(--tertiary-color);
+    --highlight-color: var(--primary-color);
+    
+}
+
+.tertiary {
+    --background-color: var(--tertiary-color);
+    --text-color: var(--secondary-color);
+    --highlight-color: var(--primary-color);
+}
+
+.primary, .secondary, .tertiary {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+::selection, ::-moz-selection {
+    background: var(--text-color); 
+    color: var(--highlight-color); 
+}
+
+
+body {
+    font-family: var(--body-font-family);
+    text-align: left;
+    font-size: 18px;
+    max-width: 100%;
+    overflow: auto;
+}
+
+main {
+    width: 100%;
+}
+
+p {
+    line-height: 1.75;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.text-left, .left {
+   text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.header-font {
+    font-family: var(--header-font-family);
+}
+
+h0, h1, h2, h3, h4, h5, h6, .dynamic-center {
+    text-align: center; 
+}
+
+h0, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-family: var(--header-font-family);
+    font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    h0, h1, h2, h3, h4, h5, h6, .dynamic-center {
+        text-align: left;
+    }
+}
+
+.mw-100 {
+    max-width: 100%;
+}
+
+.w-100vh {
+    width: 100vh;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-caption, .captioned-image-caption {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.block-image, .captioned-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    margin-top: 2rem;
+}
+
+.block-image, .captioned-image-caption {
+    margin-bottom: 2rem;
+}
+
+.link-underline, .link-underline a{
+    --link-text-decoration: underline; 
+}
+
+.no-link-underline, .no-link-underline a {
+    --link-text-decoration: none;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration-thickness: 2px !important;
+    --link-text-decoration: none;
+}
+
+a {
+    transition: 0.2s;
+    text-decoration: var(--link-text-decoration);
+}
+
+a:hover, .nav-link:focus, .nav-link:hover {
+    color: var(--highlight-color);
+}
+
+a, .nav-item, .navbar-link {
+    color: var(--text-color); 
+}
+
+.navbar-link {
+    color: var(--text-color) !important; 
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl, .column-container, .narrow-column-container, .wide-column-container, .max-column-container {
+    padding-right: var(--horizontal-doc-padding);
+    padding-left: var(--horizontal-doc-padding);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column-container, .narrow-column-container, .wide-column-container, .max-column-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.narrow-column, .narrow-column-container {
+    max-width: 800px;
+}
+
+.wide-column-container {
+    max-width: 1000px;
+}
+
+.max-column-container {
+    max-width: 100%;
+}
+
+* {
+    shape-rendering: geometricPrecision;
+}
+
+.page-header-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative; 
+    text-align: center;
+    row-gap: 20px;
+}
+
+.page-title {
+    height: min-content;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.page-subtitle {
+    font-style: italic;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumbs-date {
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+.page-header-separator {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+#main-nav .navbar-title, .navbar-title {
+    font-family: var(--header-font-family);
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.navbar-title img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 50px;
+    shape-rendering: geometricPrecision;
+}
+
+.navbar-inner {
+    max-width: 1000px;
+}
+
+.navbar-title {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.navbar-title img {
+    height: 75px;
+}
+
+.navbar-title:hover, .navbar-title:focus {
+    color: var(--text-color);
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar-nav {
+    column-gap: 20px;
+}
+
+.navbar-toggler {
+    padding: 0;
+}
+
+.nav-item {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+.second-nav .navbar-title {
+    font-size: 30px;
+}
+
+.second-nav .nav-item { 
+    font-size: 14px;
+}
+
+#signature-container, #signature {
+    width: 145;
+    height: 100px;
+}
+
+.modal .close {
+    flex-basis: 0;
+    background: none;
+    border: none;
+    font-size: 30px;
+}
+
+.vl .secondary {
+    border-left: 6px solid var(--tertiary-color);
+    height: 100%;
+}
+
+.inline-icon {
+    display: inline;
+    margin: 0 0.125em;
+    padding: 0;
+    height: 20px;
+}
+
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.icon-link > * {
+    text-decoration: var(--link-text-decoration);
+}
+
+.link-icon {
+    transition: 0.25s;
+    text-decoration: none !important;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.icon-link:hover .link-icon {
+    transform: translateX(5px);
+}
+
+.icon-link:hover .link-icon:first-child {
+    transform: translateX(-5px);
+}
+
+hr:not(.carousel) {
+    width: 100%;
+    height: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+
+hr { 
+    border-color: var(--text-color); 
+}
+
+.wide-in-narrow {
+    overflow: hidden;
+    width: 1000px;
+    max-width: 100vw;
+    position: relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding-left: var(--horizontal-doc-padding);
+    padding-right: var(--horizontal-doc-padding);
+}
+
+.secondary .btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.secondary .btn-primary:hover {
+    background: var(--secondary-color);
+    border-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+}
+
+.secondary .btn-primary:active {
+    background: var(--secondary-color);
+    border-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+    filter: brightness(70%);
+}
+
+.secondary .btn-secondary {
+    color: var(--secondary-color);
+    background: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+}
+
+.secondary .btn-secondary:hover {
+    background: var(--secondary-color);
+    border-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+}
+
+.secondary .btn-secondary:active {
+    background: var(--secondary-color);
+    border-color: var(--tertiary-color);
+    color: var(--tertiary-color);
+    filter: brightness(70%);
+}
+
+.flash > div {
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+.article-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 40px;
+}
+
+.article-card {
+    overflow: hidden;
+    position: relative; 
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.article-card-title {
+    position: relative;
+    font-size: 20px; 
+    font-family: var(--header-font-family);
+    font-weight: 500;
+    text-decoration: none !important;
+    --link-text-decoration: none;
+}
+
+.article-card-subtitle {
+    position: relative;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.article-card-time {
+    position: relative;
+    text-align: right;
+}
+
+.article-card-topline {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.article-card-snippet {
+    position: relative;
+    margin-top: 10px;
+}
+
+.article-card-author, .article-card-time {
+    position: relative;
+    padding: 0;
+}
+
+.article-card-background-darkened {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.image-header {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: start;
+    align-items: center;
+}
+
+.image-header > * {
+    line-height: 1;
+    height: min-content; 
+    margin: 0;
+}
+
+.image-header img {
+    height: 50px;
+    width: 70px;
+    object-fit: contain;
+}
+
+.block-quote {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.block-quote-row {
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.block-quote-text {
+    padding-top: 10px;
+    width: calc(100% - 70px); 
+    font-size: 20px;
+}
+
+.block-quote-image {
+    padding-left: 0;
+    padding-right: 0; 
+    width: 50px;
+    height: 50px; 
+}
+
+.block-quote-attribution {
+    font-style: italic;
+    font-size: 18px;
+    margin-left: 100px;
+} 
+
+.sleek-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.sleek-scroll::-webkit-scrollbar-track {
+box-shadow: none;
+border-radius: 10px;
+}
+  
+.sleek-scroll::-webkit-scrollbar-thumb {
+background: var(--highlight-color);
+border-radius: 10px;
+height: 20px;
+}
+
+.main-image {
+    width: 100%;
+    object-fit: fill;
+}
+
+.main-image-container {
+    width: 100%;
+    max-height: 600px;
+    padding-bottom: 30px;
+}
+
+.main-image-caption {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.blank-button {
+    background: transparent;
+    border: none;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--background-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: var(--highlight-color);
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--highlight-color);
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
+    background-color: var(--text-color);
+}
+  
+.slider.round {
+    border-radius: 100px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.circular-image {
+    border-radius: 100%;
+}
+
+.link-input {
+    background: none;
+    border: none;
+    color: inherit;
+    text-decoration: inherit;
+    padding: 0;
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--text-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--background-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: var(--highlight-color);
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--highlight-color);
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
+    background-color: var(--text-color);
+}
+  
+.slider.round {
+    border-radius: 100px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}

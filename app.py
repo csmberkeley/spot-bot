@@ -3,7 +3,7 @@ import click
 
 from utils import *
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
@@ -64,6 +64,18 @@ bolt_app = App(
 )
 
 handler = SlackRequestHandler(bolt_app)
+
+@app.route("/")
+def home():
+    return render_template("home.html")
+
+@app.route("/contact/")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/terms-privacy/")
+def terms_privacy():
+    return render_template("terms-privacy.html")
 
 @app.route(f"{BASE}/install/")
 def handle_install():
