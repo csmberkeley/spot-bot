@@ -18,7 +18,7 @@ Spot Bot is the relentless accountant of the surreptitious photos you take of ea
 ## Install
 [Click here to install](https://spotbot.csmentors.org/spotbot/install/). (I know this looks really janky, but this is actually more secure than the native slack flow which does not protect against CSRF attacks.)
 
-By installing Spot Bot, you acknowledge that you have read and agree to our [terms of use and privacy policy](https://gabeclasson.com/projects/spot-bot/terms-privacy/). 
+By installing Spot Bot, you acknowledge that you have read and agree to our [terms of use and privacy policy](https://spotbot.csmentors.org/terms-privacy/). 
 
 ## Technical details
 Developed and tested on Python 3.8.10 in Ubuntu. WSL was used to develop in Linux on a Windows PC. Spot Bot was proudly union made by members of UAW 4811. 
