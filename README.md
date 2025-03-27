@@ -25,7 +25,7 @@ Developed and tested on Python 3.8.10 in Ubuntu. WSL was used to develop in Linu
 
 You will need to set up a virtual environment to test locally and then install the requirements in `requirements.txt`. 
 
-You will also need a `.env` file with the following keys: `SPOTBOT_CLIENT_ID`, `SPOTBOT_CLIENT_SECRET`, `SPOTBOT_SECURE_LINK`, `SPOTBOT_SIGNING_SECRET`. `SPOTBOT_SECURE_LINK` refers to a link for the Mongo endpoint, i.e. mongodb+srv://...
+You will also need to set up the following confidential environment variables: `SPOTBOT_CLIENT_ID`, `SPOTBOT_CLIENT_SECRET`, `SPOTBOT_SECURE_LINK`, `SPOTBOT_SIGNING_SECRET`. `SPOTBOT_SECURE_LINK` refers to a link for the Mongo endpoint, i.e. mongodb+srv://...
 
 Once the virtual environment is set up, the following command will start it. 
 
@@ -35,7 +35,11 @@ In order to develop locally, you will need to have a Slack App configured, and a
 
 You will also need to configure the MongoDB database to accept traffic from your IP address, or else you will not be able to access the database.
 
-Once all that is configured, you can start the local server with 
+Once all that is configured, you can initialize the environment variables from your .env file with 
+
+    . initenv.sh
+
+And start the local server with 
 
     bash run.sh
 
